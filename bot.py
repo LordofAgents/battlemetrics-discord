@@ -68,7 +68,7 @@ async def update_servers():
                 players = server["attributes"]["players"]
                 max_players = server["attributes"]["maxPlayers"]
                 # Symbole festlegen
-                if "KAMPFSCHWEINE" in server_name.upper():
+                if "TRÜMMERTRUPPE" in server_name.upper():
                     circle = "🐷"
                     previous_was_kampfschweine = True
                 else:
