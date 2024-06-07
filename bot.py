@@ -70,18 +70,13 @@ async def update_servers():
                 # Symbole festlegen
                 if "TRÜMMERTRUPPE" in server_name.upper():
                     circle = "💯"
-                    previous_was_kampfschweine = True
                 else:
-                    if players == 0:
-                        circle = "🔴"  # Roter Kreis bei 0 Spielern
-                    elif players < 3:
+                    if players >= GREEN_ON_PLAYERS:
+                        circle = "🟢"  # Grüner Kreis
+                    elif players >= YELLOW_ON_PLAYERS:
                         circle = "🟡"  # Gelber Kreis bei weniger als 3 Spielern
                     else:
-                        if previous_was_kampfschweine:
-                            circle = "😫"  # Emoji, wenn vorher ein KAMPFSCHWEINE Server war
-                            previous_was_kampfschweine = False
-                        else:
-                            circle = "🟡"  # Standardmäßig gelber Kreis bei 3 oder mehr Spielern
+                        circle = "🔴"  # Rot
                 message_content.append(f"{index}. {circle} {players}/{max_players} Spieler - {server_name}")
             message_content = '\n'.join(message_content)
             if last_message:
