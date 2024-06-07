@@ -9,6 +9,9 @@ import time
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 CHANNEL_ID = int(os.getenv('CHANNEL_ID'))
+RED_ON_PLAYERS = os.getenv('RED_ON_PLAYERS')
+YELLOW_ON_PLAYERS = os.getenv('YELLOW_ON_PLAYERS')
+GREEN_ON_PLAYERS = os.getenv('GREEN_ON_PLAYERS')
 
 intents = discord.Intents.default()
 intents.messages = True
