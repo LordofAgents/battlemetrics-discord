@@ -9,9 +9,10 @@ import time
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 CHANNEL_ID = int(os.getenv('CHANNEL_ID'))
-RED_ON_PLAYERS = os.getenv('RED_ON_PLAYERS')
-YELLOW_ON_PLAYERS = os.getenv('YELLOW_ON_PLAYERS')
-GREEN_ON_PLAYERS = os.getenv('GREEN_ON_PLAYERS')
+RED_ON_PLAYERS = int(os.getenv('RED_ON_PLAYERS'))
+YELLOW_ON_PLAYERS = int(os.getenv('YELLOW_ON_PLAYERS'))
+GREEN_ON_PLAYERS = int(os.getenv('GREEN_ON_PLAYERS'))
+COUNTRY_ID = os.getenv('COUNTRY_ID')
 
 intents = discord.Intents.default()
 intents.messages = True
@@ -25,7 +26,7 @@ last_message = None  # Zum Speichern der letzten Nachrichten-ID
 def fetch_servers():
     url = "https://api.battlemetrics.com/servers"
     params = {
-        "filter[search]": "GER",
+        "filter[search]": COUNTRY_ID,
         "filter[game]": "hll",
         "sort": "-players"
     }
